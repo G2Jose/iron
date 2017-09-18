@@ -38,6 +38,6 @@
     "redux": "^3.7.2"
   },
   "lint-staged": {
-    "*.{js,json,css}": ["prettier --write", "git add"]
+    "*.{js,json,css}": ["prettier --config .prettierrc.json --write", "git add"]
   }
 }

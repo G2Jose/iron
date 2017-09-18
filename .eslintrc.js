@@ -18,6 +18,10 @@ module.exports = {
   },
   rules: {
     'react/jsx-filename-extension': [1, { extensions: ['.js', '.jsx'] }],
+    'no-use-before-define': 0, // Stop annoying message about `styles` not being declared before use
   },
-  globals: {},
+  globals: {
+    it: true,
+    expect: true,
+  },
 };

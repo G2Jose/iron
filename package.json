@@ -25,7 +25,7 @@
     "ios": "react-native-scripts ios",
     "test": "node node_modules/jest/bin/jest.js --watch",
     "lint": "eslint ./",
-    "precommit": "lint-staged"
+    "precommit": "lint-staged && npm run lint"
   },
   "jest": {
     "preset": "jest-expo"

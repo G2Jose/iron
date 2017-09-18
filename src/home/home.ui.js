@@ -1,4 +1,4 @@
 import React from 'react';
 import { View } from 'react-native';
 
-export default () => <View>"abc"</View>;
+export default () => <View />;

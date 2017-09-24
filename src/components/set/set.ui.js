@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, StyleSheet, Text, Animated } from 'react-native';
+import { View, StyleSheet, Text } from 'react-native';
 
 import Circle from 'components/widgets/circle.ui';
 import Weight from 'components/set/weight.ui';

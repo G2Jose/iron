@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, StyleSheet, Text, Button, TouchableOpacity } from 'react-native';
+import { StyleSheet, Button } from 'react-native';
 
 import Circle from 'components/widgets/circle.ui';
 

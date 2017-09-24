@@ -15,5 +15,6 @@ const styles = ({ diameter, color }) =>
       margin: 5,
       alignItems: 'center',
       justifyContent: 'center',
+      flex: 0,
     },
   });

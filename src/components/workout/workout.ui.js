@@ -7,11 +7,11 @@ import Add from 'components/widgets/add.ui';
 export default class Workout extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { numSets: 5, width: 100 };
+    this.state = { numSets: 1, width: 100 };
   }
 
   getMaxWidth() {
-    return this.state.width / (this.state.numSets + 1) - 5 * 2;
+    return this.state.width / 5 - 5 * 2;
   }
 
   render() {
@@ -24,7 +24,6 @@ export default class Workout extends React.Component {
         <View
           style={styles.sets}
           onLayout={event => {
-            console.log(event.nativeEvent.layout);
             this.setState({ width: event.nativeEvent.layout.width });
           }}
         >
@@ -54,11 +53,14 @@ const styles = StyleSheet.create({
     marginTop: 2.5,
     marginBottom: 2.5,
     paddingBottom: 10,
+    paddingTop: 2,
   },
   sets: {
     flexDirection: 'row',
-    height: 100,
     alignItems: 'center',
+    flexWrap: 'wrap',
+    marginTop: 2,
+    marginBottom: 2,
   },
   titleText: {
     marginLeft: 10,

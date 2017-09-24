@@ -3,17 +3,24 @@ import { ScrollView, View, Text, StyleSheet } from 'react-native';
 
 import Workout from 'components/workout/workout.ui';
 
-export default () => {
-  console.log(Set);
-  return (
-    <ScrollView>
-      <View style={styles.container}>
-        <Workout title="Workout 1" />
-        <Workout title="Workout 2" />
-      </View>
-    </ScrollView>
-  );
-};
+export default class Home extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      maxSets: 5,
+    };
+  }
+  render() {
+    return (
+      <ScrollView>
+        <View style={styles.container}>
+          <Workout title="Workout 1" maxSets={this.state.maxSets} />
+          <Workout title="Workout 2" maxSets={this.state.maxSets} />
+        </View>
+      </ScrollView>
+    );
+  }
+}
 
 const styles = StyleSheet.create({
   container: {

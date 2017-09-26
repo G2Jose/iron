@@ -1,13 +1,19 @@
 import React from 'react';
 import { View, StyleSheet, Text } from 'react-native';
+import { connect } from 'react-redux';
 
 import Set from 'set/set.ui';
 import Add from 'common/widgets/add.ui';
+import Card from 'common/widgets/card.ui';
+import WorkoutTitle from 'workout/workoutTitle.ui';
 
-export default class Workout extends React.Component {
+import { editWorkout } from 'workout/workout.actions';
+import { addSet } from 'set/set.actions';
+
+export class Workout extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { numSets: 1, width: 100 };
+    this.state = { numSets: 0, width: 100 };
   }
 
   getMaxWidth() {
@@ -15,32 +21,29 @@ export default class Workout extends React.Component {
   }
 
   render() {
-    const { title } = this.props;
+    const { title, index } = this.props;
+    const workout = this.props.workouts.get(index);
+    const sets = this.props.sets.filter(set => set.workout === index);
     return (
-      <View style={styles.workout}>
-        <View style={styles.title}>
-          <Text style={styles.titleText}>{title}</Text>
-        </View>
+      <Card>
+        <WorkoutTitle
+          title={workout.title}
+          onTitleChange={newTitle =>
+            this.props.editWorkout({ index, title: newTitle })}
+        />
         <View
           style={styles.sets}
           onLayout={event => {
             this.setState({ width: event.nativeEvent.layout.width });
           }}
         >
-          {[...Array(this.state.numSets).keys()].map(idx => (
-            <Set
-              key={idx}
-              number={idx + 1}
-              previous={100}
-              width={this.getMaxWidth()}
-            />
-          ))}
+          {sets.map((setData, i) => <Set key={i} width={this.getMaxWidth()} />)}
           <Add
             width={this.getMaxWidth()}
-            action={() => this.setState({ numSets: this.state.numSets + 1 })}
+            action={() => this.props.addSet({ workout: index })}
           />
         </View>
-      </View>
+      </Card>
     );
   }
 }
@@ -61,6 +64,8 @@ const styles = StyleSheet.create({
     flexWrap: 'wrap',
     marginTop: 2,
     marginBottom: 2,
+    paddingTop: 10,
+    paddingBottom: 10,
   },
   titleText: {
     marginLeft: 10,
@@ -69,3 +74,19 @@ const styles = StyleSheet.create({
     fontSize: 20,
   },
 });
+
+const mapStateToProps = state => ({
+  workouts: state.workouts,
+  sets: state.sets,
+});
+
+const mapDispatchToProps = dispatch => ({
+  editWorkout: params => {
+    dispatch(editWorkout(params));
+  },
+  addSet: params => {
+    dispatch(addSet(params));
+  },
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(Workout);

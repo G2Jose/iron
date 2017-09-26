@@ -33,10 +33,12 @@
   },
   "dependencies": {
     "expo": "^20.0.0",
+    "immutable": "^3.8.1",
     "react": "16.0.0-alpha.12",
     "react-native": "^0.47.0",
     "react-redux": "^5.0.6",
-    "redux": "^3.7.2"
+    "redux": "^3.7.2",
+    "redux-actions": "^2.2.1"
   },
   "lint-staged": {
     "*.{js,json,css}": ["prettier --config .prettierrc.json --write", "git add"]

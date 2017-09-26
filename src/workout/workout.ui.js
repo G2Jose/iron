@@ -1,8 +1,8 @@
 import React from 'react';
 import { View, StyleSheet, Text } from 'react-native';
 
-import Set from 'components/set/set.ui';
-import Add from 'components/widgets/add.ui';
+import Set from 'set/set.ui';
+import Add from 'common/widgets/add.ui';
 
 export default class Workout extends React.Component {
   constructor(props) {

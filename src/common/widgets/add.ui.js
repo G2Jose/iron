@@ -1,7 +1,7 @@
 import React from 'react';
 import { StyleSheet, Button } from 'react-native';
 
-import Circle from 'components/widgets/circle.ui';
+import Circle from 'common/widgets/circle.ui';
 
 export default ({ action, width }) => (
   <Circle diameter={width} style={styles.circle} color="white">

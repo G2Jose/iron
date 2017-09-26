@@ -1,8 +1,8 @@
 import React from 'react';
 import { View, StyleSheet, Text } from 'react-native';
 
-import Circle from 'components/widgets/circle.ui';
-import Weight from 'components/set/weight.ui';
+import Circle from 'common/widgets/circle.ui';
+import Weight from 'set/weight.ui';
 
 export default class Set extends React.Component {
   constructor(props) {

@@ -7,7 +7,7 @@ import {
   Platform,
 } from 'react-native';
 
-import Workout from 'components/workout/workout.ui';
+import Workout from 'workout/workout.ui';
 
 export default class Home extends React.Component {
   constructor(props) {

@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, StyleSheet, Text } from 'react-native';
+import { View, StyleSheet } from 'react-native';
 import { connect } from 'react-redux';
 
 import Set from 'set/set.ui';
@@ -21,7 +21,7 @@ export class Workout extends React.Component {
   }
 
   render() {
-    const { title, index } = this.props;
+    const { index } = this.props;
     const workout = this.props.workouts.get(index);
     const sets = this.props.sets.filter(set => set.workout === index);
     return (

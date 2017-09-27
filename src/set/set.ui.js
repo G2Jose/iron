@@ -4,7 +4,7 @@ import { View, StyleSheet, Text, TouchableOpacity } from 'react-native';
 
 import Circle from 'common/widgets/circle.ui';
 import Weight from 'set/weight.ui';
-import { editSet } from 'set/set.actions';
+import { editSet as editSetAction } from 'set/set.actions';
 
 class Set extends React.Component {
   constructor(props) {
@@ -14,7 +14,7 @@ class Set extends React.Component {
 
   render() {
     const { _id, editSet, width, sets } = this.props;
-    const set = this.props.sets.filter(set => set._id === _id).get(0);
+    const set = sets.filter(_set => _set._id === _id).get(0);
     return (
       <View style={styles.set}>
         <TouchableOpacity
@@ -51,7 +51,7 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
   editSet: params => {
-    dispatch(editSet(params));
+    dispatch(editSetAction(params));
   },
 });
 

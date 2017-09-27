@@ -27,7 +27,8 @@ class Set extends React.Component {
         <Weight
           weight={set.weight}
           width={width}
-          onWeightUpdate={newWeight => editSet({ _id, weight: newWeight })}
+          onWeightUpdate={newWeight =>
+            editSet({ _id, weight: Number(newWeight) })}
         />
       </View>
     );

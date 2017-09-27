@@ -16,5 +16,5 @@ export default handleActions(
       return state.set(index, newWorkout);
     },
   },
-  defaultState
+  defaultState,
 );

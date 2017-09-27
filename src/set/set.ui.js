@@ -1,22 +1,34 @@
 import React from 'react';
-import { View, StyleSheet, Text } from 'react-native';
+import { connect } from 'react-redux';
+import { View, StyleSheet, Text, TouchableOpacity } from 'react-native';
 
 import Circle from 'common/widgets/circle.ui';
 import Weight from 'set/weight.ui';
+import { editSet } from 'set/set.actions';
 
-export default class Set extends React.Component {
+class Set extends React.Component {
   constructor(props) {
     super(props);
     this.state = { numReps: 0, weight: 0 };
   }
 
   render() {
+    const { _id, editSet, width, sets } = this.props;
+    const set = this.props.sets.filter(set => set._id === _id).get(0);
     return (
       <View style={styles.set}>
-        <Circle color="blue" diameter={this.props.width}>
-          <Text style={styles.numReps}>{this.state.numReps}</Text>
-        </Circle>
-        <Weight text={`${this.state.weight} kg`} width={this.props.width} />
+        <TouchableOpacity
+          onPress={() => editSet({ _id, numReps: set.get('numReps') + 1 })}
+        >
+          <Circle color="blue" diameter={width}>
+            <Text style={styles.numReps}>{set.get('numReps')}</Text>
+          </Circle>
+        </TouchableOpacity>
+        <Weight
+          weight={set.weight}
+          width={width}
+          onWeightUpdate={newWeight => editSet({ _id, weight: newWeight })}
+        />
       </View>
     );
   }
@@ -31,3 +43,15 @@ const styles = StyleSheet.create({
     paddingBottom: 10,
   },
 });
+
+const mapStateToProps = state => ({
+  sets: state.sets,
+});
+
+const mapDispatchToProps = dispatch => ({
+  editSet: params => {
+    dispatch(editSet(params));
+  },
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(Set);

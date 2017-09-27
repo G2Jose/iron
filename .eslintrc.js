@@ -20,6 +20,7 @@ module.exports = {
     'react/jsx-filename-extension': [1, { extensions: ['.js', '.jsx'] }],
     'no-use-before-define': 0, // Stop annoying message about `styles` not being declared before use
     'react/no-array-index-key': 0,
+    'no-underscore-dangle': 0,
   },
   globals: {
     it: true,

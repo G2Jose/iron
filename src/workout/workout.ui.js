@@ -37,7 +37,9 @@ export class Workout extends React.Component {
             this.setState({ width: event.nativeEvent.layout.width });
           }}
         >
-          {sets.map((setData, i) => <Set key={i} width={this.getMaxWidth()} />)}
+          {sets.map((setData, i) => (
+            <Set key={i} width={this.getMaxWidth()} _id={setData._id} />
+          ))}
           <Add
             width={this.getMaxWidth()}
             action={() => this.props.addSet({ workout: index })}

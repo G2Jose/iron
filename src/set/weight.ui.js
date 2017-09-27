@@ -9,10 +9,15 @@ export default class Weight extends React.Component {
 
   render() {
     const { onWeightUpdate, weight, width } = this.props;
+    const getWeightTextToDisplay = (editting, weight) => {
+      if (!editting) return `${weight} lb`;
+      else if (weight === 0) return '';
+      return weight;
+    };
     return (
       <TextInput
         onChangeText={onWeightUpdate}
-        value={this.state.editting ? `${weight}` : `${weight} lbs`}
+        value={getWeightTextToDisplay(this.state.editting, weight)}
         style={{ width, textAlign: 'center' }}
         keyboardType="numeric"
         onFocus={() => this.setState({ editting: true })}

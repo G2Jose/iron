@@ -33,7 +33,7 @@ export class Workout extends React.Component {
         />
         <View
           style={styles.sets}
-          onLayout={event => {
+          onLayout={(event) => {
             this.setState({ width: event.nativeEvent.layout.width });
           }}
         >
@@ -83,10 +83,10 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  editWorkout: params => {
+  editWorkout: (params) => {
     dispatch(editWorkout(params));
   },
-  addSet: params => {
+  addSet: (params) => {
     dispatch(addSet(params));
   },
 });

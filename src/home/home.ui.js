@@ -57,7 +57,7 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  addWorkout: params => {
+  addWorkout: (params) => {
     dispatch(addWorkout(params));
   },
 });

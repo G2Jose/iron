@@ -1,7 +1,7 @@
 import Immutable from 'immutable';
 import { randomId } from 'common/utils/random';
 
-export default props => {
+export default (props) => {
   const Model = Immutable.Record({
     ...props,
     _id: null,

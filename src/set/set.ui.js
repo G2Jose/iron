@@ -50,7 +50,7 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  editSet: params => {
+  editSet: (params) => {
     dispatch(editSetAction(params));
   },
 });

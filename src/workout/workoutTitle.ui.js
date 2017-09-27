@@ -30,7 +30,7 @@ export default class WorkoutTitle extends React.Component {
     }
     return (
       <TextInput
-        ref={component => {
+        ref={(component) => {
           // We use this to focus TextInput as soon as it's rendered
           this.textInput = component;
           if (this.textInput) this.textInput.focus();

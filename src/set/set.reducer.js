@@ -16,5 +16,5 @@ export default handleActions(
       return state.set(setIndex, newSet);
     },
   },
-  defaultState
+  defaultState,
 );
